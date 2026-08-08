@@ -3,27 +3,27 @@ import Link from "next/link";
 const PROBLEMS = [
   {
     title: "Classes are expensive",
-    body: "Private lessons and club fees put sports out of reach for a lot of families before a kid ever picks up a racket.",
+    body: "Private lessons, club fees, and enrichment programs put sports and learning out of reach for a lot of families.",
   },
   {
     title: "Kids just want to try it",
-    body: "Most kids don't know if they'll love a sport — they shouldn't have to pay full price to find out.",
+    body: "Most kids don't know what they'll love — a sport, a subject — until they've tried it. That shouldn't cost full price to find out.",
   },
   {
     title: "Not available everywhere",
-    body: "Quality coaching for every age group isn't offered in every neighborhood.",
+    body: "Quality coaching and enrichment classes for every age group aren't offered in every neighborhood.",
   },
   {
-    title: "Equipment adds up",
-    body: "Shoes, rackets, and balls are one more cost on top of registration — and often the reason a kid sits out.",
+    title: "Materials add up",
+    body: "Shoes, rackets, and class supplies are one more cost on top of registration — and often the reason a kid sits out.",
   },
 ];
 
 const GOALS = [
-  "Run free and low-cost camps so trying a sport never costs a family more than they can afford.",
-  "Raise funds to buy equipment — shoes, rackets, and balls — for kids who need it.",
-  "Teach real skills that help kids grow into confident young athletes.",
-  "Give every kid a chance to compete, no matter their starting skill level.",
+  "Run free and low-cost camps so trying a sport or a new subject never costs a family more than they can afford.",
+  "Raise funds for equipment and class materials for kids who need them.",
+  "Teach real skills that help kids grow into confident young athletes and curious learners.",
+  "Give every kid a chance to compete and to learn, no matter their starting skill level.",
 ];
 
 const SCHEDULE = [
@@ -51,12 +51,14 @@ export default function Home() {
             </span>
             <h1 className="mt-6 font-display text-4xl font-extrabold leading-tight text-ink sm:text-6xl">
               Every kid deserves a shot at{" "}
-              <span className="text-spark">sport</span>.
+              <span className="text-spark">sports</span> and{" "}
+              <span className="text-spark">learning</span>.
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-ink-soft">
-              Spark Kids runs affordable tennis and running camps so kids can
-              try a sport, build real skills, and find out what they love —
-              without their family taking on a big cost to find out.
+              Spark Kids runs affordable camps that pair tennis and running
+              with hands-on classes, so kids build real skills — on the
+              court and in the classroom — without their family taking on a
+              big cost to find out what they love.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
@@ -92,8 +94,9 @@ export default function Home() {
             Why we started Spark Kids
           </h2>
           <p className="mt-3 max-w-2xl text-ink-soft">
-            When kids are small, parents want them to try different sports —
-            but figuring out what a kid loves shouldn&apos;t cost a fortune.
+            When kids are small, parents want them to try different sports
+            and subjects — but figuring out what a kid loves shouldn&apos;t
+            cost a fortune.
           </p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             {PROBLEMS.map((p) => (
@@ -138,8 +141,8 @@ export default function Home() {
             A day at camp
           </h2>
           <p className="mt-3 max-w-2xl text-cream/70">
-            Right now our flagship format pairs tennis with classroom
-            learning.
+            Our flagship format splits the morning evenly between sports and
+            classroom learning.
           </p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             {SCHEDULE.map((step) => (
@@ -172,8 +175,8 @@ export default function Home() {
           Help us reach more kids
         </h2>
         <p className="mx-auto mt-3 max-w-xl text-ink-soft">
-          Every donation goes toward camp scholarships and equipment — shoes,
-          rackets, and balls — for kids who need it.
+          Every donation goes toward camp scholarships, sports gear, and
+          class materials for kids who need them.
         </p>
         <Link
           href="/get-involved"

@@ -16,9 +16,9 @@ const baloo = Baloo_2({
 });
 
 export const metadata: Metadata = {
-  title: "Spark Kids | Youth Sports Camps",
+  title: "Spark Kids | Sports & Enrichment Camps",
   description:
-    "Spark Kids runs low-cost tennis and running camps so every kid gets the chance to try a sport, build real skills, and compete — no matter their budget or skill level.",
+    "Spark Kids runs low-cost camps pairing tennis and running with hands-on classes, so every kid gets the chance to try a sport, build real skills, and keep learning — no matter their budget or skill level.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

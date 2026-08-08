@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 
 const WAYS_TO_HELP = [
   {
-    title: "Donate to the equipment fund",
-    body: "Your gift buys shoes, rackets, and balls so no kid has to sit out camp because of gear they don't have.",
+    title: "Donate to the equipment & materials fund",
+    body: "Your gift buys shoes, rackets, and class supplies so no kid has to sit out because of gear or materials they don't have.",
     cta: "Donate",
   },
   {
@@ -19,9 +19,9 @@ const WAYS_TO_HELP = [
     cta: "Sponsor a spot",
   },
   {
-    title: "Volunteer to coach",
-    body: "Have tennis, running, or youth-coaching experience? We're always looking for volunteers on camp days.",
-    cta: "Ask about coaching",
+    title: "Volunteer to coach or teach",
+    body: "Have tennis, running, or classroom teaching experience? We're always looking for volunteers on camp days — on the court or in the classroom.",
+    cta: "Ask about volunteering",
   },
 ];
 
@@ -35,9 +35,9 @@ export default function GetInvolvedPage() {
         Help us reach more kids.
       </h1>
       <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
-        Spark Kids runs on donations and volunteer coaches. Every bit of
-        support goes toward lowering the cost of camp and putting real
-        equipment in kids&apos; hands.
+        Spark Kids runs on donations and volunteer coaches and teachers.
+        Every bit of support goes toward lowering the cost of camp and
+        putting real gear and class materials in kids&apos; hands.
       </p>
 
       <div className="mt-12 space-y-5">

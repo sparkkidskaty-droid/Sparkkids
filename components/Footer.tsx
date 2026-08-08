@@ -14,8 +14,8 @@ export default function Footer() {
             className="h-7 w-auto"
           />
           <p className="mt-3 max-w-xs text-sm text-ink-soft">
-            A nonprofit giving every kid an affordable first shot at tennis
-            and running — no matter their budget or skill level.
+            A nonprofit giving every kid an affordable first shot at sports
+            and learning — no matter their budget or skill level.
           </p>
         </div>
 

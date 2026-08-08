@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-baloo), ui-rounded, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  /* Spark Kids brand palette: tennis-ball chartreuse + track-orange, on warm cream. */
+  --color-cream: #fdf9f0;
+  --color-cream-dark: #f3ead4;
+  --color-ink: #1f2a1a;
+  --color-ink-soft: #4c5a44;
+  --color-spark: #ff6a2c;
+  --color-spark-deep: #d94f16;
+  --color-court: #c7e02e;
+  --color-court-deep: #8fa813;
+  --color-sky: #2f9bb0;
+
+  --animate-float-slow: float 9s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.7s ease-out both;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(var(--shape-r, 0deg)) scale(1);
+  }
+  50% {
+    transform: translate(12px, -16px) rotate(var(--shape-r, 0deg)) scale(1.05);
   }
 }
 
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-ink);
 }

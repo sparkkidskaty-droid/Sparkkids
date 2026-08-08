@@ -1,14 +1,19 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className="border-t border-ink/10 bg-cream-dark">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <p className="font-display text-lg font-extrabold text-ink">
-            Spark<span className="text-spark">Kids</span>
-          </p>
-          <p className="mt-2 max-w-xs text-sm text-ink-soft">
+          <Image
+            src="/brand/spark_kids_horizontal.png"
+            alt="Spark Kids"
+            width={2562}
+            height={636}
+            className="h-7 w-auto"
+          />
+          <p className="mt-3 max-w-xs text-sm text-ink-soft">
             A nonprofit giving every kid an affordable first shot at tennis
             and running — no matter their budget or skill level.
           </p>

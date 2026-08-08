@@ -7,12 +7,7 @@ create table public.camp_interest (
   parent_phone text,
   camper_name text not null,
   camper_age int not null check (camper_age between 3 and 18),
-  camp text not null check (camp in ('tennis', 'running', 'both')),
-  assistance_level text not null
-    check (assistance_level in ('full_price', 'reduced', 'free')),
   notes text,
-  priority int not null default 0,
-  needs_followup boolean not null default false,
   created_at timestamptz not null default now()
 );
 

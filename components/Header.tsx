@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { href: "/about", label: "About" },
@@ -12,11 +13,15 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-ink/10 bg-cream/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link
-          href="/"
-          className="font-display text-xl font-extrabold tracking-tight text-ink"
-        >
-          Spark<span className="text-spark">Kids</span>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/brand/spark_kids_horizontal.png"
+            alt="Spark Kids"
+            width={2562}
+            height={636}
+            priority
+            className="h-8 w-auto"
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">

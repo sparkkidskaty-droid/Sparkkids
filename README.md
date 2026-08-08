@@ -27,8 +27,10 @@ everything else on the site works without Supabase.
 
 ## Still needs real content
 
-- Camp ages, dates, and pricing on `/programs` (currently a placeholder).
-- Photos on `/gallery`.
+- Photos on `/gallery` (from the first two camps).
 - A real donation link (PayPal/Venmo/giving platform) on `/get-involved`.
-- The financial-assistance triage logic in `app/contact/actions.ts` — see the
-  `TODO(human)` there.
+
+Branding (logo, favicon, WeChat QR) is pulled from `~/Downloads/spark kids/`
+into `public/brand/`. Program dates, hours, fee, and class list on
+`/programs` come from `spark_kids_flier_bilingual.pdf` in that same folder —
+update both the flier and this site if the Summer 2026 details change.

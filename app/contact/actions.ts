@@ -13,8 +13,6 @@ const interestSchema = z.object({
     .min(1, "Please tell us your camper's name.")
     .max(100),
   camper_age: z.coerce.number().int().min(3).max(18),
-  camp: z.enum(["tennis", "running", "both"]),
-  assistance_level: z.enum(["full_price", "reduced", "free"]),
   notes: z.string().trim().max(1000).optional(),
 });
 
@@ -30,8 +28,6 @@ export async function submitInterest(
     parent_phone: formData.get("parent_phone") || undefined,
     camper_name: formData.get("camper_name"),
     camper_age: formData.get("camper_age"),
-    camp: formData.get("camp"),
-    assistance_level: formData.get("assistance_level"),
     notes: formData.get("notes") || undefined,
   });
 
@@ -39,21 +35,6 @@ export async function submitInterest(
     return { error: parsed.error.issues[0]?.message ?? "Please check the form." };
   }
   const values = parsed.data;
-
-  // TODO(human): decide how each submission gets triaged for staff follow-up.
-  //
-  // Every signup lands in the same inbox, but a "free" scholarship request
-  // needs a human to look at it before the family hears back, while a
-  // full-price signup for an open camp probably doesn't. Set:
-  //   - priority: a number staff can sort by (higher = look at this sooner)
-  //   - needsFollowup: true if a real person should review before any
-  //     automated confirmation goes out
-  //
-  // You know the actual policy here (e.g. all free/reduced requests get
-  // reviewed, or only ones with a note explaining need, or capacity-based).
-  // Use `values.assistance_level` and `values.notes` to decide.
-  const priority = 0;
-  const needsFollowup = false;
 
   try {
     const supabase = await createClient();
@@ -65,11 +46,7 @@ export async function submitInterest(
         parent_phone: values.parent_phone || null,
         camper_name: values.camper_name,
         camper_age: values.camper_age,
-        camp: values.camp,
-        assistance_level: values.assistance_level,
         notes: values.notes || null,
-        priority,
-        needs_followup: needsFollowup,
       });
 
     if (insertError) throw insertError;

@@ -28,14 +28,14 @@ const GOALS = [
 
 const SCHEDULE = [
   {
-    time: "Morning",
-    title: "On the court",
-    body: "Campers start the day with hands-on tennis instruction — footwork, strokes, and mini matches.",
+    time: "8:00 – 9:00 AM",
+    title: "Tennis & running",
+    body: "Campers warm up with jump ropes, then split into groups for tennis and running — swapping sports each day.",
   },
   {
-    time: "Midday",
-    title: "In the classroom",
-    body: "We drive campers to our classroom for coaching, teamwork activities, and skill-building lessons until about 12:30.",
+    time: "9:15 AM – 12:00 PM",
+    title: "Classes",
+    body: "We drive campers to our classroom, where they rotate through Chinese folktales, book club, and science.",
   },
 ];
 

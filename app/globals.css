@@ -6,13 +6,14 @@
 }
 
 @theme {
-  /* Spark Kids brand palette: tennis-ball chartreuse + track-orange, on warm cream. */
+  /* Spark Kids brand palette — navy + orange sampled from the real logo
+     (public/brand/spark_kids_horizontal.png), on warm cream. */
   --color-cream: #fdf9f0;
   --color-cream-dark: #f3ead4;
-  --color-ink: #1f2a1a;
-  --color-ink-soft: #4c5a44;
-  --color-spark: #ff6a2c;
-  --color-spark-deep: #d94f16;
+  --color-ink: #14213d;
+  --color-ink-soft: #4c5875;
+  --color-spark: #ff6b1a;
+  --color-spark-deep: #dd5410;
   --color-court: #c7e02e;
   --color-court-deep: #8fa813;
   --color-sky: #2f9bb0;

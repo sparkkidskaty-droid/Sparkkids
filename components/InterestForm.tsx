@@ -89,58 +89,6 @@ export default function InterestForm() {
       </div>
 
       <div>
-        <span className="block text-sm font-bold">Which camp?</span>
-        <div className="mt-2 grid grid-cols-3 gap-2">
-          {[
-            { value: "tennis", label: "Tennis" },
-            { value: "running", label: "Running" },
-            { value: "both", label: "Both" },
-          ].map((option) => (
-            <label
-              key={option.value}
-              className="cursor-pointer rounded-xl border-2 border-ink/15 px-4 py-2.5 text-center text-sm font-bold text-ink-soft transition-all has-checked:border-spark has-checked:bg-spark/10 has-checked:text-spark-deep"
-            >
-              <input
-                type="radio"
-                name="camp"
-                value={option.value}
-                defaultChecked={option.value === "tennis"}
-                className="sr-only"
-              />
-              {option.label}
-            </label>
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <span className="block text-sm font-bold">
-          Financial assistance
-        </span>
-        <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-3">
-          {[
-            { value: "full_price", label: "I can pay full price" },
-            { value: "reduced", label: "I need a reduced rate" },
-            { value: "free", label: "I need a free spot" },
-          ].map((option) => (
-            <label
-              key={option.value}
-              className="cursor-pointer rounded-xl border-2 border-ink/15 px-4 py-2.5 text-center text-sm font-bold text-ink-soft transition-all has-checked:border-court-deep has-checked:bg-court/20 has-checked:text-court-deep"
-            >
-              <input
-                type="radio"
-                name="assistance_level"
-                value={option.value}
-                defaultChecked={option.value === "full_price"}
-                className="sr-only"
-              />
-              {option.label}
-            </label>
-          ))}
-        </div>
-      </div>
-
-      <div>
         <label htmlFor="notes" className="block text-sm font-bold">
           Anything else we should know?{" "}
           <span className="font-normal text-ink-soft">(optional)</span>

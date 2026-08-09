@@ -8,19 +8,29 @@ export const metadata: Metadata = {
 // Placeholder roster — swap in real names, roles, bios, and photos.
 const TEAM = [
   {
-    name: "Your Name Here",
+    name: "Position 1",
     role: "Founder & Head Coach",
     bio: "A sentence or two on their background and why they started Spark Kids.",
   },
   {
-    name: "Coach Name",
+    name: "Position 2",
     role: "Program Director",
     bio: "A sentence or two on what they run day-to-day.",
   },
   {
-    name: "Teacher Name",
+    name: "Position 3",
     role: "Classroom Lead",
     bio: "A sentence or two on the classes they teach.",
+  },
+  {
+    name: "Position 4",
+    role: "Volunteer Coordinator",
+    bio: "A sentence or two on how they recruit and organize camp-day volunteers.",
+  },
+  {
+    name: "Position 5",
+    role: "Board Member",
+    bio: "A sentence or two on their role supporting Spark Kids.",
   },
 ];
 
@@ -53,7 +63,7 @@ export default function TeamPage() {
         <span className="font-mono">app/team/page.tsx</span>.
       </div>
 
-      <div className="mt-10 grid gap-6 sm:grid-cols-3">
+      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {TEAM.map((member) => (
           <div
             key={member.name}

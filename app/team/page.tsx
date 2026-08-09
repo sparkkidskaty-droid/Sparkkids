@@ -2,36 +2,15 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Team | Spark Kids",
-  description: "Meet the people behind Spark Kids.",
+  description: "Meet the co-founders behind Spark Kids.",
 };
 
-// Placeholder roster — swap in real names, roles, bios, and photos.
 const TEAM = [
-  {
-    name: "Position 1",
-    role: "Founder & Head Coach",
-    bio: "A sentence or two on their background and why they started Spark Kids.",
-  },
-  {
-    name: "Position 2",
-    role: "Program Director",
-    bio: "A sentence or two on what they run day-to-day.",
-  },
-  {
-    name: "Position 3",
-    role: "Classroom Lead",
-    bio: "A sentence or two on the classes they teach.",
-  },
-  {
-    name: "Position 4",
-    role: "Volunteer Coordinator",
-    bio: "A sentence or two on how they recruit and organize camp-day volunteers.",
-  },
-  {
-    name: "Position 5",
-    role: "Board Member",
-    bio: "A sentence or two on their role supporting Spark Kids.",
-  },
+  { name: "Daniel", role: "Co-Founder" },
+  { name: "Benson", role: "Co-Founder" },
+  { name: "Mathew", role: "Co-Founder" },
+  { name: "Alex", role: "Co-Founder" },
+  { name: "William", role: "Co-Founder" },
 ];
 
 function initials(name: string) {
@@ -53,15 +32,8 @@ export default function TeamPage() {
         The people behind Spark Kids.
       </h1>
       <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
-        Coaches, teachers, and volunteers who show up every camp day to make
-        sports and learning affordable for local kids.
+        Five co-founders who coach, teach, and run every camp day together.
       </p>
-
-      <div className="mt-6 rounded-2xl border border-dashed border-ink/20 bg-cream-dark/40 p-5 text-sm text-ink-soft">
-        This roster is a placeholder — swap in real names, roles, bios, and
-        photos in the <span className="font-mono">TEAM</span> array in{" "}
-        <span className="font-mono">app/team/page.tsx</span>.
-      </div>
 
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {TEAM.map((member) => (
@@ -78,7 +50,6 @@ export default function TeamPage() {
             <p className="text-sm font-semibold text-spark-deep">
               {member.role}
             </p>
-            <p className="mt-2 text-sm text-ink-soft">{member.bio}</p>
           </div>
         ))}
       </div>

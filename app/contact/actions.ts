@@ -50,6 +50,7 @@ export async function submitInterest(
         camper_name: values.camper_name,
         camper_age: values.camper_age,
         notes: values.notes || null,
+        lang,
       });
 
     if (insertError) throw insertError;

@@ -79,10 +79,6 @@ export default function Home() {
 
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-16 top-10 h-72 w-72 rounded-full bg-spark/30 blur-3xl"
-        />
-        <div
-          aria-hidden
           className="pointer-events-none absolute -right-4 top-40 h-24 w-24 animate-float-slow rounded-full border-8 border-spark/30"
         />
       </section>

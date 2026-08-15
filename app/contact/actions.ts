@@ -2,19 +2,19 @@
 
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
+import { dictionaries, type Lang } from "@/lib/translations";
 
-const interestSchema = z.object({
-  parent_name: z.string().trim().min(1, "Please tell us your name.").max(100),
-  parent_email: z.string().trim().email("Please enter a valid email."),
-  parent_phone: z.string().trim().max(30).optional(),
-  camper_name: z
-    .string()
-    .trim()
-    .min(1, "Please tell us your camper's name.")
-    .max(100),
-  camper_age: z.coerce.number().int().min(3).max(18),
-  notes: z.string().trim().max(1000).optional(),
-});
+function interestSchema(lang: Lang) {
+  const t = dictionaries[lang].form;
+  return z.object({
+    parent_name: z.string().trim().min(1, t.errName).max(100),
+    parent_email: z.string().trim().email(t.errEmail),
+    parent_phone: z.string().trim().max(30).optional(),
+    camper_name: z.string().trim().min(1, t.errCamperName).max(100),
+    camper_age: z.coerce.number().int().min(3, t.errAge).max(18, t.errAge),
+    notes: z.string().trim().max(1000).optional(),
+  });
+}
 
 export type InterestState = { error?: string; success?: boolean } | null;
 
@@ -22,7 +22,10 @@ export async function submitInterest(
   _prev: InterestState,
   formData: FormData
 ): Promise<InterestState> {
-  const parsed = interestSchema.safeParse({
+  const lang: Lang = formData.get("lang") === "zh" ? "zh" : "en";
+  const t = dictionaries[lang].form;
+
+  const parsed = interestSchema(lang).safeParse({
     parent_name: formData.get("parent_name"),
     parent_email: formData.get("parent_email"),
     parent_phone: formData.get("parent_phone") || undefined,
@@ -32,7 +35,7 @@ export async function submitInterest(
   });
 
   if (!parsed.success) {
-    return { error: parsed.error.issues[0]?.message ?? "Please check the form." };
+    return { error: parsed.error.issues[0]?.message ?? t.errGeneric };
   }
   const values = parsed.data;
 
@@ -52,9 +55,7 @@ export async function submitInterest(
     if (insertError) throw insertError;
   } catch (err) {
     console.error("[contact] camp_interest insert failed", err);
-    return {
-      error: "Something went wrong submitting your info — please try again.",
-    };
+    return { error: t.errServer };
   }
 
   return { success: true };

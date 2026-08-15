@@ -3,6 +3,7 @@ import { Inter, Baloo_2 } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { dict, getLang } from "@/lib/i18n";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -15,16 +16,20 @@ const baloo = Baloo_2({
   weight: ["500", "600", "700", "800"],
 });
 
-export const metadata: Metadata = {
-  title: "Spark Kids | Sports & Enrichment Camps",
-  description:
-    "Spark Kids runs low-cost camps pairing tennis and running with hands-on classes, so every kid gets the chance to try a sport, build real skills, and keep learning — no matter their budget or skill level.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const lang = await getLang();
+  const t = dict(lang);
+  return {
+    title: t.home.metaTitle,
+    description: t.home.metaDescription,
+  };
+}
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const lang = await getLang();
   return (
     <html
-      lang="en"
+      lang={lang === "zh" ? "zh-CN" : "en"}
       className={`${inter.variable} ${baloo.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-ink font-sans">

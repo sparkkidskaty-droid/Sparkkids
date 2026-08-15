@@ -1,45 +1,10 @@
 import Link from "next/link";
+import { dict, getLang } from "@/lib/i18n";
 
-const PROBLEMS = [
-  {
-    title: "Classes are expensive",
-    body: "Private lessons, club fees, and enrichment programs put sports and learning out of reach for a lot of families.",
-  },
-  {
-    title: "Kids just want to try it",
-    body: "Most kids don't know what they'll love — a sport, a subject — until they've tried it. That shouldn't cost full price to find out.",
-  },
-  {
-    title: "Not available everywhere",
-    body: "Quality coaching and enrichment classes for every age group aren't offered in every neighborhood.",
-  },
-  {
-    title: "Materials add up",
-    body: "Shoes, rackets, and class supplies are one more cost on top of registration — and often the reason a kid sits out.",
-  },
-];
+export default async function Home() {
+  const lang = await getLang();
+  const t = dict(lang).home;
 
-const GOALS = [
-  "Run free and low-cost camps so trying a sport or a new subject never costs a family more than they can afford.",
-  "Raise funds for equipment and class materials for kids who need them.",
-  "Teach real skills that help kids grow into confident young athletes and curious learners.",
-  "Give every kid a chance to compete and to learn, no matter their starting skill level.",
-];
-
-const SCHEDULE = [
-  {
-    time: "8:00 – 9:00 AM",
-    title: "Tennis & running",
-    body: "Campers warm up with jump ropes, then split into groups for tennis and running — swapping sports each day.",
-  },
-  {
-    time: "9:15 AM – 12:00 PM",
-    title: "Classes",
-    body: "We drive campers to our classroom, where they rotate through Chinese folktales, book club, and science.",
-  },
-];
-
-export default function Home() {
   return (
     <div>
       {/* Hero */}
@@ -47,31 +12,30 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
           <div className="max-w-2xl">
             <span className="inline-block rounded-full bg-court/30 px-4 py-1.5 text-sm font-bold text-court-deep">
-              2 camps hosted and counting
+              {t.badge}
             </span>
             <h1 className="mt-6 font-display text-4xl font-extrabold leading-tight text-ink sm:text-6xl">
-              Every kid deserves a shot at{" "}
-              <span className="text-spark">sports</span> and{" "}
-              <span className="text-spark">learning</span>.
+              {t.titleBefore}
+              <span className="text-spark">{t.titleSports}</span>
+              {t.titleAnd}
+              <span className="text-spark">{t.titleLearning}</span>
+              {t.titleAfter}
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-ink-soft">
-              Spark Kids runs affordable camps that pair tennis and running
-              with hands-on classes, so kids build real skills — on the
-              court and in the classroom — without their family taking on a
-              big cost to find out what they love.
+              {t.intro}
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/contact"
                 className="rounded-full bg-spark px-7 py-3.5 font-bold text-white shadow-sm transition-colors hover:bg-spark-deep"
               >
-                Sign up for a camp
+                {t.signup}
               </Link>
               <Link
                 href="/get-involved"
                 className="rounded-full border-2 border-ink/15 px-7 py-3.5 font-bold text-ink transition-colors hover:border-ink/30"
               >
-                Support the mission
+                {t.support}
               </Link>
             </div>
           </div>
@@ -87,15 +51,11 @@ export default function Home() {
       <section className="border-y border-ink/10 bg-cream-dark">
         <div className="mx-auto max-w-6xl px-6 py-16">
           <h2 className="font-display text-3xl font-extrabold text-ink">
-            Why we started Spark Kids
+            {t.whyTitle}
           </h2>
-          <p className="mt-3 max-w-2xl text-ink-soft">
-            When kids are small, parents want them to try different sports
-            and subjects — but figuring out what a kid loves shouldn&apos;t
-            cost a fortune.
-          </p>
+          <p className="mt-3 max-w-2xl text-ink-soft">{t.whyIntro}</p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {PROBLEMS.map((p) => (
+            {t.problems.map((p) => (
               <div
                 key={p.title}
                 className="rounded-2xl border border-ink/10 bg-cream p-6"
@@ -113,10 +73,10 @@ export default function Home() {
       {/* Goals */}
       <section className="mx-auto max-w-6xl px-6 py-16">
         <h2 className="font-display text-3xl font-extrabold text-ink">
-          What we&apos;re working toward
+          {t.goalsTitle}
         </h2>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-          {GOALS.map((goal) => (
+          {t.goals.map((goal) => (
             <li
               key={goal}
               className="flex items-start gap-3 rounded-2xl bg-court/15 p-5"
@@ -134,14 +94,11 @@ export default function Home() {
       <section className="border-t border-ink/10 bg-ink">
         <div className="mx-auto max-w-6xl px-6 py-16">
           <h2 className="font-display text-3xl font-extrabold text-cream">
-            A day at camp
+            {t.dayTitle}
           </h2>
-          <p className="mt-3 max-w-2xl text-cream/70">
-            Our flagship format splits the morning evenly between sports and
-            classroom learning.
-          </p>
+          <p className="mt-3 max-w-2xl text-cream/70">{t.dayIntro}</p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {SCHEDULE.map((step) => (
+            {t.schedule.map((step) => (
               <div
                 key={step.title}
                 className="rounded-2xl border border-cream/15 p-6"
@@ -160,7 +117,7 @@ export default function Home() {
             href="/programs"
             className="mt-8 inline-block font-bold text-spark hover:text-spark/80"
           >
-            See full program details &rarr;
+            {t.seePrograms} &rarr;
           </Link>
         </div>
       </section>
@@ -168,17 +125,14 @@ export default function Home() {
       {/* CTA */}
       <section className="mx-auto max-w-6xl px-6 py-16 text-center">
         <h2 className="font-display text-3xl font-extrabold text-ink">
-          Help us reach more kids
+          {t.ctaTitle}
         </h2>
-        <p className="mx-auto mt-3 max-w-xl text-ink-soft">
-          Every donation goes toward camp scholarships, sports gear, and
-          class materials for kids who need them.
-        </p>
+        <p className="mx-auto mt-3 max-w-xl text-ink-soft">{t.ctaBody}</p>
         <Link
           href="/get-involved"
           className="mt-8 inline-block rounded-full bg-spark px-8 py-3.5 font-bold text-white shadow-sm transition-colors hover:bg-spark-deep"
         >
-          Get involved
+          {t.ctaButton}
         </Link>
       </section>
     </div>

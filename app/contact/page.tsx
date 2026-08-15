@@ -1,44 +1,44 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import InterestForm from "@/components/InterestForm";
+import { dict, getLang } from "@/lib/i18n";
 
-export const metadata: Metadata = {
-  title: "Contact | Spark Kids",
-  description: "Sign your kid up for a camp or get in touch with Spark Kids.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const lang = await getLang();
+  const t = dict(lang).contact;
+  return { title: t.metaTitle, description: t.metaDescription };
+}
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const lang = await getLang();
+  const t = dict(lang).contact;
+
   return (
     <div className="mx-auto max-w-2xl px-6 py-16">
       <span className="text-sm font-bold uppercase tracking-wide text-spark">
-        Get in touch
+        {t.badge}
       </span>
       <h1 className="mt-3 font-display text-4xl font-extrabold text-ink sm:text-5xl">
-        Sign up or say hello.
+        {t.title}
       </h1>
-      <p className="mt-6 leading-relaxed text-ink-soft">
-        Fill this out to sign your kid up for a camp, volunteer to coach, or
-        just get in touch. We read every submission and follow up by email.
-      </p>
+      <p className="mt-6 leading-relaxed text-ink-soft">{t.intro}</p>
 
       <div className="mt-6 flex items-center gap-5 rounded-2xl border border-ink/10 bg-cream-dark/40 p-5">
         <Image
           src="/brand/wechat-qr.png"
-          alt="Scan to join the Spark Kids WeChat group"
+          alt={t.wechatBody}
           width={308}
           height={308}
           className="h-20 w-20 flex-none rounded-lg border border-ink/10 bg-white"
         />
         <div>
-          <p className="text-sm font-bold text-ink">Prefer WeChat?</p>
-          <p className="text-sm text-ink-soft">
-            Scan to join our WeChat group — 扫码加入微信群
-          </p>
+          <p className="text-sm font-bold text-ink">{t.wechatTitle}</p>
+          <p className="text-sm text-ink-soft">{t.wechatBody}</p>
         </div>
       </div>
 
       <div className="mt-6 rounded-3xl border border-ink/10 bg-cream-dark/40 p-6 sm:p-8">
-        <InterestForm />
+        <InterestForm lang={lang} />
       </div>
     </div>
   );

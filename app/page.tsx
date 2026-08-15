@@ -79,7 +79,7 @@ export default function Home() {
 
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-16 top-10 h-72 w-72 rounded-full bg-court/40 blur-3xl"
+          className="pointer-events-none absolute -right-16 top-10 h-72 w-72 rounded-full bg-spark/30 blur-3xl"
         />
         <div
           aria-hidden

@@ -6,11 +6,11 @@ export const metadata: Metadata = {
 };
 
 const TEAM = [
-  { name: "Daniel", role: "Co-Founder" },
   { name: "Benson", role: "Co-Founder" },
-  { name: "Mathew", role: "Co-Founder" },
-  { name: "Alex", role: "Co-Founder" },
   { name: "William", role: "Co-Founder" },
+  { name: "Alex", role: "Co-Founder" },
+  { name: "Mathew", role: "Co-Founder" },
+  { name: "Daniel", role: "Co-Founder" },
 ];
 
 function initials(name: string) {

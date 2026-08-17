@@ -17,10 +17,8 @@ const notifyEmails = (Deno.env.get("NOTIFY_EMAIL") ?? "")
   .filter(Boolean);
 const sheetUrl = (Deno.env.get("SHEET_WEBHOOK_URL") ?? "").trim();
 
-// onboarding@resend.dev only delivers to the Resend account owner's email.
-// Once a domain is verified in Resend, switch this to
-// "Spark Kids <signups@yourdomain.org>" so parent confirmations also deliver.
-const FROM = "Spark Kids <onboarding@resend.dev>";
+// Verified domain: sparkkids.org. Parent confirmations deliver to any address.
+const FROM = "Spark Kids <signups@sparkkids.org>";
 
 const esc = (s: unknown) =>
   String(s ?? "")

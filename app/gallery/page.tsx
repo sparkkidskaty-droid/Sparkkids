@@ -16,6 +16,8 @@ const PHOTOS = [
   "/gallery/IMG_8595-rot.jpeg",
   "/gallery/IMG_8640.jpeg",
   "/gallery/IMG_7449.jpeg",
+  "/gallery/camp-aug-1.jpg",
+  "/gallery/camp-aug-2.jpg",
 ];
 
 export async function generateMetadata(): Promise<Metadata> {

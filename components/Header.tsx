@@ -21,10 +21,10 @@ export default async function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center">
           <Image
-            src="/brand/spark_kids_horizontal_white.png"
+            src="/brand/spark_kids_wordmark_white.png"
             alt="Spark Kids"
-            width={2562}
-            height={636}
+            width={999}
+            height={404}
             priority
             className="h-8 w-auto"
           />

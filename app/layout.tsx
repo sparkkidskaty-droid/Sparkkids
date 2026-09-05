@@ -20,8 +20,21 @@ export async function generateMetadata(): Promise<Metadata> {
   const lang = await getLang();
   const t = dict(lang);
   return {
+    metadataBase: new URL("https://sparkkids.org"),
     title: t.home.metaTitle,
     description: t.home.metaDescription,
+    openGraph: {
+      type: "website",
+      siteName: "Spark Kids",
+      locale: lang === "zh" ? "zh_CN" : "en_US",
+      title: t.home.metaTitle,
+      description: t.home.metaDescription,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t.home.metaTitle,
+      description: t.home.metaDescription,
+    },
   };
 }
 

@@ -45,6 +45,9 @@ export default async function TeamPage() {
             </div>
             <h2 className="mt-4 font-display font-bold text-ink">{member}</h2>
             <p className="text-sm font-semibold text-spark-deep">{t.role}</p>
+            {member === "Daniel" && t.danielBio ? (
+              <p className="mt-2 text-sm leading-relaxed text-ink-soft">{t.danielBio}</p>
+            ) : null}
           </div>
         ))}
       </div>

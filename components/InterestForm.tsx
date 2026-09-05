@@ -1,7 +1,8 @@
 "use client";
 
-import { useActionState } from "react";
+import { useEffect, useState, useActionState } from "react";
 import { submitInterest, type InterestState } from "@/app/contact/actions";
+import { issueFormToken } from "@/app/contact/actions";
 import { dictionaries, type Lang } from "@/lib/translations";
 
 const inputClass =
@@ -13,6 +14,22 @@ export default function InterestForm({ lang }: { lang: Lang }) {
     submitInterest,
     null
   );
+
+  // Server-signed issue time; bots that post instantly get bounced, humans never notice.
+  const [formToken, setFormToken] = useState<string | null>(null);
+  useEffect(() => {
+    let active = true;
+    issueFormToken().then((token) => {
+      if (active) setFormToken(token);
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (state?.token) setFormToken(state.token);
+  }, [state]);
 
   if (state?.success) {
     return (
@@ -28,6 +45,21 @@ export default function InterestForm({ lang }: { lang: Lang }) {
   return (
     <form action={formAction} className="space-y-5">
       <input type="hidden" name="lang" value={lang} />
+      {formToken ? (
+        <input key={formToken} type="hidden" name="form_token" value={formToken} />
+      ) : null}
+
+      {/* Honeypot: hidden from humans, irresistible to bots. */}
+      <div aria-hidden className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+        <label htmlFor="website">Website</label>
+        <input
+          id="website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>

@@ -231,6 +231,8 @@ export const dictionaries = {
       errGeneric: "Please check the form.",
       errServer:
         "Something went wrong submitting your info — please try again.",
+      errTooFast:
+        "That was quick! Please wait a few seconds and submit again — we want to make sure a real person is signing up.",
     },
   },
 
@@ -458,6 +460,7 @@ export const dictionaries = {
       errAge: "请输入 3 到 18 岁之间的年龄。",
       errGeneric: "请检查表单。",
       errServer: "提交信息时出现问题——请重试。",
+      errTooFast: "提交有点太快啦！请等几秒钟再提交一次——我们要确认是真人报名。",
     },
   },
 };

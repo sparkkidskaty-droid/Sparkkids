@@ -128,6 +128,8 @@ export const dictionaries = {
       title: "The people behind Spark Kids.",
       intro: "Five co-founders who coach, teach, and run every camp day together.",
       role: "Co-Founder",
+      danielBio:
+        "Co-founder Daniel coaches on the court, teaches in the classroom, and built the tech behind Spark Kids — including this website.",
     },
     programs: {
       metaTitle: "Programs | Spark Kids",
@@ -357,6 +359,8 @@ export const dictionaries = {
       title: "Spark Kids 背后的团队。",
       intro: "五位联合创始人，一起教练、授课，负责每一个夏令营日。",
       role: "联合创始人",
+      danielBio:
+        "联合创始人 Daniel 在球场上做教练，在课堂里教书，还搭建了 Spark Kids 的技术——包括这个网站。",
     },
     programs: {
       metaTitle: "课程安排 | Spark Kids",

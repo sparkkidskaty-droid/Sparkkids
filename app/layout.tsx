@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const lang = await getLang();
   const t = dict(lang);
   return {
-    metadataBase: new URL("https://sparkkids.org"),
+    metadataBase: new URL("https://www.sparkkids.org"),
     title: t.home.metaTitle,
     description: t.home.metaDescription,
     openGraph: {

@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/admin"],
     },
-    sitemap: "https://sparkkids.org/sitemap.xml",
+    sitemap: "https://www.sparkkids.org/sitemap.xml",
   };
 }

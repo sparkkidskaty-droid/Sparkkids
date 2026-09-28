@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE = "https://sparkkids.org";
+const BASE = "https://www.sparkkids.org";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = ["", "/about", "/team", "/programs", "/gallery", "/get-involved", "/contact"];
